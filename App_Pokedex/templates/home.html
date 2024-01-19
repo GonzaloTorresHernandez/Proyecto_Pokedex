@@ -1,0 +1,127 @@
+{% extends 'plantillas/plantilla_general.html' %}
+{% block contenido %}
+
+<div class="contenido-pokedex">
+    <br>
+    <div class="container">
+        <form class="d-flex" role="search" method="get">
+            <input class="form-control" type="search" placeholder="N° o Nombre" aria-label="Search"
+                name="buscar-pokemon" value="">
+            <button class="btn btn-outline-secondary btn-sm" type="submit">Buscar</button>
+    </div>
+    <div class="row">
+        {% for pokemon in pokemones %}
+        <div class="col-2 d-flex align-items-center mb-4">
+            <div class="card h-100">
+                <a href="{% url 'detalle-pokemon' pokemon.numero %}"><img class="card-img-top" src="{{pokemon.imagen}}" alt="{{pokemon.nombre}}" width="200" height="200"></a>
+                <div class="card-body">
+                    <div class="info">
+                        <p><span>&#65283;{{pokemon.numero}}</span></p>
+                        <h5 class="card-title text-center">{{pokemon.nombre}}</h5>
+                    </div>
+                    <div class="text-center">
+                        {% for t in pokemon.tipo %}
+                        {% if t == 'normal' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #A8A77A; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'fire' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #EE8130; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'water' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #6390F0; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'electric' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #F7D02C; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'grass' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #7AC74C; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'ice' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #96D9D6; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'fighting' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #C22E28; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'poison' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #A33EA1; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'ground' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #E2BF65; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'flying' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #A98FF3; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'psychic' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #F95587; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'bug' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #A6B91A; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'rock' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #B6A136; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'ghost' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #735797; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'dragon' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #6F35FC; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'dark' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #705746; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'steel' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #B7B7CE; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% elif t == 'fairy' %}
+                        <div class="badge text-wrap"
+                            style="text-align: center; background-color: #D685AD; font-size: 15px;">
+                            {{t}}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+
+{% endblock contenido %}
